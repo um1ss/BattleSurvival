@@ -43,7 +43,7 @@ namespace DenisKim.MVVM.Education.ViewModel // Пространство имен
                 // Вызов метода AddEnergyCommand в хендлере энергии (_energyHandler).
                 // Убедитесь, что 'AddEnergyCommand' в CharacterEnergyHandler является методом, а не свойством,
                 // и принимает 'int value'.
-                _energyHandler.AddEnergyCommand(1); 
+                _energyHandler.AddEnergyCommand(); 
             }).AddTo(_disposables); // Добавление подписки на команду в CompositeDisposable для автоматической отписки при Dispose
         }
 
