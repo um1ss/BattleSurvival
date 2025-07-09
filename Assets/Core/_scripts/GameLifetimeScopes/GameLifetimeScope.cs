@@ -21,7 +21,7 @@ sealed public class GameLifetimeScope : LifetimeScope
 
         builder.Register<ISceneLoader, SceneLoader>(Lifetime.Singleton);
         
-        Debug.Log($"{GetType().Name}: registered all dependencies");
+        Debug.Log($"{this.GetType().Name}: registered all dependencies");
         
         builder.RegisterEntryPoint<BootstrapEntryPoint>(Lifetime.Singleton);
     }
