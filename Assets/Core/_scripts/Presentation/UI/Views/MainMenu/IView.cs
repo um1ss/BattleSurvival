@@ -1,4 +1,4 @@
-namespace DenisKim.Presentation
+namespace DenisKim.Core.Presentation
 {
     public interface IView
     {

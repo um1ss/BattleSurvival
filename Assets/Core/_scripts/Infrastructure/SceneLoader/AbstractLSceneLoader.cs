@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using VContainer;
 using VContainer.Unity;
 
-namespace DenisKim.Insfrastructure
+namespace DenisKim.Core.Insfrastructure
 {
     public class AbstractLSceneLoader : ISceneLoader
     {

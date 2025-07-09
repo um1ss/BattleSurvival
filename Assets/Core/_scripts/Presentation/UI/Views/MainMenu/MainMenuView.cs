@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using DenisKim.Application;
+using DenisKim.Core.Application;
 using VContainer;
 
-namespace DenisKim.Presentation
+namespace DenisKim.Core.Presentation
 {
     sealed public class MainMenuView : AbstractView
     {

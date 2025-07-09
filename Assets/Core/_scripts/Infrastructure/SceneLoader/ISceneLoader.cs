@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 using VContainer;
 using VContainer.Unity;
 
-namespace DenisKim.Insfrastructure
+namespace DenisKim.Core.Insfrastructure
 {
     public interface ISceneLoader
     {

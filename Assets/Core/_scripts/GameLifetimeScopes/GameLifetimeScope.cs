@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using VContainer;
 using VContainer.Unity;
-using DenisKim.Insfrastructure;
+using DenisKim.Core.Insfrastructure;
 
 sealed public class GameLifetimeScope : LifetimeScope
 {

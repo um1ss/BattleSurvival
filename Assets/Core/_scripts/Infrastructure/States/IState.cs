@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VContainer.Unity;
+using DenisKim.Core.Application;
 
 namespace DenisKim.Core.Insfrastructure
 {
-    sealed public class SceneLoader : AbstractLSceneLoader
+    public interface IState
     {
-
-    }
+        void EnterState();
+        void ExitState();
+    }   
 }

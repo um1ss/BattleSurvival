@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DenisKim.Presentation
+namespace DenisKim.Core.Presentation
 {
     public abstract class AbstractView : MonoBehaviour, IView
     {

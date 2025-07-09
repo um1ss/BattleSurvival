@@ -1,7 +1,7 @@
 using VContainer;
 using VContainer.Unity;
-using DenisKim.Application;
-using DenisKim.Presentation;
+using DenisKim.Core.Application;
+using DenisKim.Core.Presentation;
 using UnityEngine;
 
 sealed public class MainMenuLifetimeScope : LifetimeScope

@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using VContainer;
 using VContainer.Unity;
-using DenisKim.Insfrastructure;
+using DenisKim.Core.Insfrastructure;
 
 public class BootstrapEntryPoint : IStartable
 {
