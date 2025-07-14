@@ -15,10 +15,7 @@ namespace DenisKim.Core.Insfrastructure
         }
         public virtual void ChangeState(IState state)
         {
-            _state.ExitState();
-            Debug.Log($"Context: Transition to {state.GetType().Name}.");
             _state = state;
-            _state.EnterState();
         }
     }
 }

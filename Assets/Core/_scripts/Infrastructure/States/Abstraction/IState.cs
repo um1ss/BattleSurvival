@@ -7,7 +7,6 @@ namespace DenisKim.Core.Insfrastructure
 {
     public interface IState
     {
-        void EnterState();
-        void ExitState();
+
     }   
 }

@@ -23,14 +23,5 @@ namespace DenisKim.Core.Insfrastructure
         {
             _stateMachine.ChangeState(state);
         }
-        public virtual void EnterState()
-        {
-            Debug.Log($"{_stateMachine.GetType().Name} entered in {this.GetType().Name} State");
-        }
-
-        public virtual void ExitState()
-        {
-            Debug.Log($"{_stateMachine.GetType().Name} came out in {this.GetType().Name} State");
-        }
     }
 }
