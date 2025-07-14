@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using VContainer;
 using VContainer.Unity;
 using DenisKim.Core.Insfrastructure;
+using DenisKim.Core.Domain;
 
 sealed public class GameLifetimeScope : LifetimeScope
 {
@@ -19,7 +20,8 @@ sealed public class GameLifetimeScope : LifetimeScope
         builder.RegisterComponentInNewPrefab(_eventSystemPrefab, Lifetime.Singleton)
             .DontDestroyOnLoad();
 
-        builder.Register<ISceneLoader, SceneLoader>(Lifetime.Singleton);
+        builder.Register<LoadedScene>(Lifetime.Singleton);
+        builder.Register<SceneLoader>(Lifetime.Singleton);
         
         Debug.Log($"{this.GetType().Name}: registered all dependencies");
         
