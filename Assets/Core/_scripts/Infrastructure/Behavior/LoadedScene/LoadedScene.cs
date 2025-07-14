@@ -4,9 +4,9 @@ using VContainer.Unity;
 
 namespace DenisKim.Core.Insfrastructure
 {
-    public class LoadedScene : BaseLoadedScene
+    public class LoadedScene : ILoadedScene
     {
-        public override async UniTask Load(LifetimeScope rootLifetimeScope, string sceneName)
+        public async UniTask Load(LifetimeScope rootLifetimeScope, string sceneName)
         {
             using (LifetimeScope.EnqueueParent(rootLifetimeScope))
             {
