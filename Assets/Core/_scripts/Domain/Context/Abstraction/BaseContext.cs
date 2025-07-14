@@ -1,4 +1,4 @@
-using DenisKim.Core.Insfrastructure;
+using DenisKim.Core.Infrastructure;
 
 namespace DenisKim.Core.Domain
 {

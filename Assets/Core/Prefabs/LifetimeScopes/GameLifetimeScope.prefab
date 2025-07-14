@@ -54,5 +54,3 @@ MonoBehaviour:
     type: 3}
   _eventSystemPrefab: {fileID: 1263905180269610642, guid: 0890a5abf1c11ce47b4bd38608a1b72c,
     type: 3}
-  _mainMenuLifetimeScope: {fileID: 1184299563561360306, guid: 7c76173a791838747b1a72b6ee93b544,
-    type: 3}

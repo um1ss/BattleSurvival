@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine.SceneManagement;
 using VContainer.Unity;
 
-namespace DenisKim.Core.Insfrastructure
+namespace DenisKim.Core.Infrastructure
 {
     public class LoadedScene : ILoadedScene
     {

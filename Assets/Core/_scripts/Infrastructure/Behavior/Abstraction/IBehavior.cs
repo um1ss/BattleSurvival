@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DenisKim.Core.Insfrastructure
+namespace DenisKim.Core.Infrastructure
 {
     public interface IBehavior
     {

@@ -1,10 +1,10 @@
-using DenisKim.Core.Insfrastructure;
+using DenisKim.Core.Infrastructure;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DenisKim.Core.Insfrastructure
+namespace DenisKim.Core.Infrastructure
 {
     public abstract class BaseStateMachine : IStateMachine
     {

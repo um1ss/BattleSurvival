@@ -5,17 +5,13 @@ using UnityEngine;
 using DenisKim.Core.Application;
 using VContainer;
 
-namespace DenisKim.Core.Insfrastructure
+namespace DenisKim.Core.Infrastructure
 {
     public abstract class BaseState : IState
     {
-        protected IStateMachine _stateMachine;
+        protected readonly IStateMachine _stateMachine;
         
         protected BaseState(IStateMachine stateMachine)
-        {
-            ChangeStateMachine(stateMachine);
-        }
-        protected virtual void ChangeStateMachine(IStateMachine stateMachine)
         {
             _stateMachine = stateMachine;
         }

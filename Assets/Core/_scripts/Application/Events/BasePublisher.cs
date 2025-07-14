@@ -15,7 +15,7 @@ namespace DenisKim.Core.Application
             _listeners.Add(listener);
         }
 
-        public void NotifyListener()
+        public virtual void NotifyListener()
         {
             foreach (IListener listener in _listeners)
             {

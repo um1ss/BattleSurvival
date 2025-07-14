@@ -1,10 +1,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 using VContainer;
 using VContainer.Unity;
 using DenisKim.Core.Domain;
-using DenisKim.Core.Insfrastructure;
 
 public class BootstrapEntryPoint : IStartable
 {

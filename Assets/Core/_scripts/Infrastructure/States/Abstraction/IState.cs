@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DenisKim.Core.Application;
 
-namespace DenisKim.Core.Insfrastructure
+namespace DenisKim.Core.Infrastructure
 {
     public interface IState
     {
