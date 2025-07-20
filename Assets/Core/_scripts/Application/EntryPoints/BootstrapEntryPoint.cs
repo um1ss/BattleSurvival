@@ -11,7 +11,6 @@ public class BootstrapEntryPoint : IAsyncStartable
     readonly ISceneTransitionService _sceneTransitionService;
     readonly IAssetLoadingService _assetLoadingService;
     readonly DontDestroyOnLoadAssetLoadingStrategy _dontDestroyOnLoadAssetLoadingStrategy;
-    readonly AssetLoadingStrategy _assetLoadingStrategy;
 
     [Inject]
     public BootstrapEntryPoint(ISceneTransitionService sceneLoaderContext, IAssetLoadingService assetLoadContext,
@@ -21,12 +20,11 @@ public class BootstrapEntryPoint : IAsyncStartable
         _sceneTransitionService = sceneLoaderContext;
         _assetLoadingService = assetLoadContext;
         _dontDestroyOnLoadAssetLoadingStrategy = dontDestroyOnLoadAssetLoadingStrategy;
-        _assetLoadingStrategy = assetLoadingStrategy;
     }
 
     public async UniTask StartAsync(CancellationToken cancellationToken)
     {
-        _assetLoadingService.ChangeBehavior(_assetLoadingStrategy);
+        _assetLoadingService.ChangeBehavior(_dontDestroyOnLoadAssetLoadingStrategy);
         await _assetLoadingService.InstantiateObject("Assets/Core/Prefabs/GameLifetimeScope/EventSystem.prefab");
         await _assetLoadingService.InstantiateObject("Assets/Core/Prefabs/GameLifetimeScope/Main Camera.prefab");
         await _assetLoadingService.InstantiateObject("Assets/Core/Prefabs/GameLifetimeScope/Canvas.prefab");
