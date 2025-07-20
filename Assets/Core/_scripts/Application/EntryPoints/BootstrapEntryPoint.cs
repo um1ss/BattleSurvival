@@ -1,29 +1,36 @@
-using UnityEngine;
-using UnityEngine.EventSystems;
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using DenisKim.Core.Domain;
+using DenisKim.Core.Infrastructure;
 using VContainer;
 using VContainer.Unity;
-using DenisKim.Core.Domain;
 
-public class BootstrapEntryPoint : IStartable
+public class BootstrapEntryPoint : IAsyncStartable
 {
-    readonly Camera _camera;
-    readonly EventSystem _eventSystem;
-    readonly Canvas _canvas;
+    const int MAIN_MENU_SCENE_INDEX = 1;
+    readonly ISceneTransitionService _sceneTransitionService;
+    readonly IAssetLoadingService _assetLoadingService;
+    readonly DontDestroyOnLoadAssetLoadingStrategy _dontDestroyOnLoadAssetLoadingStrategy;
+    readonly AssetLoadingStrategy _assetLoadingStrategy;
 
-    readonly SceneLoader _sceneLoader;
-    
     [Inject]
-    public BootstrapEntryPoint(Camera camera, EventSystem eventSystem, Canvas canvas,
-        SceneLoader sceneLoader)
+    public BootstrapEntryPoint(ISceneTransitionService sceneLoaderContext, IAssetLoadingService assetLoadContext,
+        DontDestroyOnLoadAssetLoadingStrategy dontDestroyOnLoadAssetLoadingStrategy,
+        AssetLoadingStrategy assetLoadingStrategy)
     {
-        _sceneLoader = sceneLoader;
-        _camera = camera;
-        _eventSystem = eventSystem;
-        _canvas = canvas;
+        _sceneTransitionService = sceneLoaderContext;
+        _assetLoadingService = assetLoadContext;
+        _dontDestroyOnLoadAssetLoadingStrategy = dontDestroyOnLoadAssetLoadingStrategy;
+        _assetLoadingStrategy = assetLoadingStrategy;
     }
 
-    public void Start()
+    public async UniTask StartAsync(CancellationToken cancellationToken)
     {
-        _sceneLoader.Load();
+        _assetLoadingService.ChangeBehavior(_assetLoadingStrategy);
+        await _assetLoadingService.InstantiateObject("Assets/Core/Prefabs/GameLifetimeScope/EventSystem.prefab");
+        await _assetLoadingService.InstantiateObject("Assets/Core/Prefabs/GameLifetimeScope/Main Camera.prefab");
+        await _assetLoadingService.InstantiateObject("Assets/Core/Prefabs/GameLifetimeScope/Canvas.prefab");
+
+        await _sceneTransitionService.Load(MAIN_MENU_SCENE_INDEX);
     }
 }

@@ -1,31 +1,31 @@
+using DenisKim.Core.Domain;
+using DenisKim.Core.Infrastructure;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using VContainer;
 using VContainer.Unity;
 using DenisKim.Core.Infrastructure;
-using DenisKim.Core.Domain;
 
 sealed public class GameLifetimeScope : LifetimeScope
 {
-    [SerializeField] Camera _cameraPrefab;
-    [SerializeField] Canvas _canvasPrefab;
-    [SerializeField] EventSystem _eventSystemPrefab;
-
     protected override void Configure(IContainerBuilder builder)
     {
-        builder.RegisterComponentInNewPrefab(_cameraPrefab, Lifetime.Singleton)
-            .DontDestroyOnLoad();
-        builder.RegisterComponentInNewPrefab(_canvasPrefab, Lifetime.Singleton)
-            .DontDestroyOnLoad();
-        builder.RegisterComponentInNewPrefab(_eventSystemPrefab, Lifetime.Singleton)
-            .DontDestroyOnLoad();
+        #region IAssetLoadingStrategy
+        builder.Register<AssetLoadingStrategy>(Lifetime.Singleton);
+        builder.Register<DontDestroyOnLoadAssetLoadingStrategy>(Lifetime.Singleton);
+        #endregion
 
-        builder.Register<LoadedScene>(Lifetime.Singleton);
-        builder.Register<SceneLoader>(Lifetime.Singleton);
-        
+        #region Services
+        builder.Register<ISceneTransitionService, SceneTransitionService>(Lifetime.Singleton);
+        builder.Register<IAssetLoadingService, AssetLoadingService>(Lifetime.Singleton);
+        //builder.Register<IUIService, UIService>(Lifetime.Singleton);
+        #endregion
+
         Debug.Log($"{this.GetType().Name}: registered all dependencies");
-        
-        builder.RegisterEntryPoint<BootstrapEntryPoint>(Lifetime.Singleton);
+
+        builder.RegisterEntryPoint<BootstrapEntryPoint>(Lifetime.Singleton).As<IAsyncStartable>();
     }
 }
 
