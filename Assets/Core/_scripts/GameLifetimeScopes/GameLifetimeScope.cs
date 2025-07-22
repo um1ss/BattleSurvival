@@ -1,20 +1,20 @@
 using DenisKim.Core.Domain;
 using DenisKim.Core.Infrastructure;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.EventSystems;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using VContainer;
 using VContainer.Unity;
-using DenisKim.Core.Infrastructure;
 
-sealed public class GameLifetimeScope : LifetimeScope
+public sealed class GameLifetimeScope : LifetimeScope
 {
     protected override void Configure(IContainerBuilder builder)
     {
+        #region ISceneTransitionStrategy
+        builder.Register<SceneTransitionStrategy>(Lifetime.Singleton);
+        #endregion
+
         #region IAssetLoadingStrategy
         builder.Register<AssetLoadingStrategy>(Lifetime.Singleton);
-        builder.Register<DontDestroyOnLoadAssetLoadingStrategy>(Lifetime.Singleton);
+        builder.Register<DontDestroyAssetLoadingStrategy>(Lifetime.Singleton);
         #endregion
 
         #region Services
