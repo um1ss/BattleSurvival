@@ -5,8 +5,6 @@ namespace DenisKim.Core.Domain
 {
     public interface IUIService
     {
-        UniTask CreatePersistentPanels(IRootCanvasStrategy rootCanvasStrategy);
-        void ShowPanel();
-        void HidePanel();
+        public UniTask AddPanelDictionary(PanelsEnum panel, string address);
     }
 }

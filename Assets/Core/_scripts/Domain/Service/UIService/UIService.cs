@@ -1,39 +1,39 @@
 using Cysharp.Threading.Tasks;
 using DenisKim.Core.Infrastructure;
-using DenisKim.Core.Presentation;
 using System.Collections.Generic;
-using DenisKim.Core.Domain;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using VContainer;
 
 namespace DenisKim.Core.Domain
 {
     public sealed class UIService : IUIService
     {
-        IAssetLoadingService _assetLoadingService;
+        #region Services
+        readonly IAssetLoadingService _assetLoadingService;
+        #endregion
 
-        public UniTask CreatePersistentPanels(IRootCanvasStrategy rootCanvasStrategy)
+        readonly Canvas _canvas;
+        readonly Dictionary<PanelsEnum, (GameObject instance, AsyncOperationHandle<GameObject> handle)> _loadedUIPanels;
+
+        GameObject _currentActivePanel;
+
+        [Inject]
+        public UIService(Canvas canvas, DontDestroyAssetLoadingStrategy dontDestroyAssetLoadingStrategy, IAssetLoadingService assetLoadingService)
         {
-            throw new System.NotImplementedException();
+            _canvas = canvas;
+            _assetLoadingService = assetLoadingService;
+            _loadedUIPanels = new Dictionary<PanelsEnum, (GameObject, AsyncOperationHandle<GameObject>)>();
         }
 
-        public void CreateView(string prefabPath)
+        public async UniTask AddPanelDictionary(PanelsEnum panel, string address)
         {
-            //_assetLoadingService.InstantiateObject(prefabPath, true, );
-        }
-
-        public void HidePanel()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public async UniTask ShowPanel()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        void IUIService.ShowPanel()
-        {
-            throw new System.NotImplementedException();
+            var handle = await _assetLoadingService.GetAssetLink<GameObject>(address);
+            var instance = await _assetLoadingService.InstantiateGameObject(await _assetLoadingService.GetAssetLink<GameObject>(address),
+                _canvas?.transform);
+            instance.SetActive(false);
+            _loadedUIPanels.Add(panel, (instance, handle));
         }
     }
 }

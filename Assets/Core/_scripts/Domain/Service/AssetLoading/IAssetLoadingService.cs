@@ -7,10 +7,9 @@ namespace DenisKim.Core.Domain
 {
     public interface IAssetLoadingService
     {
-        UniTask InstantiateGameObject(IAssetLoadingStrategy assetLoadingStrategy,
+        UniTask<GameObject> InstantiateGameObject(IAssetLoadingStrategy assetLoadingStrategy,
             AsyncOperationHandle<GameObject> assetLink);
-        UniTask InstantiateGameObject(IAssetLoadingStrategy assetLoadingStrategy,
-            AsyncOperationHandle<GameObject> assetLink,
+        UniTask<GameObject> InstantiateGameObject(AsyncOperationHandle<GameObject> assetLink,
             Transform parent);
         UniTask<AsyncOperationHandle<T>> GetAssetLink<T>(string address);
     }

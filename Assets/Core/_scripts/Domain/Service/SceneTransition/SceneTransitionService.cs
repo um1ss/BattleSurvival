@@ -6,9 +6,9 @@ namespace DenisKim.Core.Domain
 {
     public sealed class SceneTransitionService : ISceneTransitionService
     {
-        public async UniTask Load(ISceneTransitionStrategy sceneTransitionStrategy, int sceneId)
+        public async UniTask Load(int sceneId)
         {
-            await sceneTransitionStrategy.Load(sceneId);
+            await SceneManager.LoadSceneAsync(sceneId, LoadSceneMode.Single);
         }
     }
 }

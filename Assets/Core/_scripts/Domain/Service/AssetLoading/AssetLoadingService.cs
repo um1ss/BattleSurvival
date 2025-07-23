@@ -15,17 +15,17 @@ namespace DenisKim.Core.Domain
             return handle;
         }
 
-        public async UniTask InstantiateGameObject(IAssetLoadingStrategy assetLoadingStrategy,
+        public async UniTask<GameObject> InstantiateGameObject(IAssetLoadingStrategy assetLoadingStrategy,
             AsyncOperationHandle<GameObject> assetLink)
         {
-            await assetLoadingStrategy.InstantiateGameObject(assetLink);
+            return await assetLoadingStrategy.InstantiateGameObject(assetLink);
         }
 
-        public async UniTask InstantiateGameObject(IAssetLoadingStrategy assetLoadingStrategy,
-            AsyncOperationHandle<GameObject> assetLink,
+        public async UniTask<GameObject> InstantiateGameObject(AsyncOperationHandle<GameObject> assetLink,
             Transform parent)
         {
-            await assetLoadingStrategy.InstantiateGameObject(assetLink, parent);
+            var instance = GameObject.Instantiate(await assetLink.ToUniTask(), parent, false);
+            return instance;
         }
     }
 }

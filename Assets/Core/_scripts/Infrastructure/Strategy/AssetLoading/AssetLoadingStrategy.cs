@@ -6,14 +6,9 @@ namespace DenisKim.Core.Infrastructure
 {
     public sealed class AssetLoadingStrategy : IAssetLoadingStrategy
     {
-        public async UniTask InstantiateGameObject(AsyncOperationHandle<GameObject> assetLink)
+        public async UniTask<GameObject> InstantiateGameObject(AsyncOperationHandle<GameObject> assetLink)
         {
-            GameObject.Instantiate(await assetLink.ToUniTask());
-        }
-
-        public async UniTask InstantiateGameObject(AsyncOperationHandle<GameObject> assetLink, Transform parent)
-        {
-            GameObject.Instantiate(await assetLink.ToUniTask(), parent);
+            return GameObject.Instantiate(await assetLink.ToUniTask());
         }
     }
 }

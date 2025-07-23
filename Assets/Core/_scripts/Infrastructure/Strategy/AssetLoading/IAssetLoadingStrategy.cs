@@ -6,7 +6,6 @@ namespace DenisKim.Core.Infrastructure
 {
     public interface IAssetLoadingStrategy
     {
-        UniTask InstantiateGameObject(AsyncOperationHandle<GameObject> assetLink);
-        UniTask InstantiateGameObject(AsyncOperationHandle<GameObject> assetLink, Transform parent);
+        UniTask<GameObject> InstantiateGameObject(AsyncOperationHandle<GameObject> assetLink);
     }
 }

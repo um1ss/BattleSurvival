@@ -5,6 +5,6 @@ namespace DenisKim.Core.Domain
 {
     public interface ISceneTransitionService
     {
-        UniTask Load(ISceneTransitionStrategy sceneTransitionStrategy, int sceneId);
+        UniTask Load(int sceneId);
     }
 }

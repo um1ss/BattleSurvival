@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using DenisKim.Core.Domain;
+using DenisKim.Core.Infrastructure;
+using VContainer;
 using VContainer.Unity;
-using DenisKim.Core.Application;
 
 sealed public class MainMenuEntryPoint : IStartable
 {
-    readonly IViewModel _mainMenuViewModel;
-    public MainMenuEntryPoint(MainMenuViewModel mainMenuViewModel)
+    #region Services
+    readonly IUIService _uiService;
+    #endregion
+
+    [Inject]
+    public MainMenuEntryPoint(DontDestroyAssetLoadingStrategy dontDestroyAssetLoadingStrategy, IUIService uiService)
     {
-        _mainMenuViewModel = mainMenuViewModel;
+        _uiService = uiService;
     }
 
     public void Start()
     {
+
     }
 }

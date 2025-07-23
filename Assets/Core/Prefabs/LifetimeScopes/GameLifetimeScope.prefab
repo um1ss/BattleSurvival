@@ -48,3 +48,7 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
+  _eventSystem: {fileID: 1263905180269610642, guid: 0890a5abf1c11ce47b4bd38608a1b72c,
+    type: 3}
+  _canvas: {fileID: 6627041075909545310, guid: 52b60106e85722247b2332b67dc80be9, type: 3}
+  _camera: {fileID: 3080269292275534397, guid: 14b73acfce7ce694099dc8e89ead7bfe, type: 3}
