@@ -4,5 +4,4 @@ namespace DenisKim.Core.Application
     {
 
     }
-
 }

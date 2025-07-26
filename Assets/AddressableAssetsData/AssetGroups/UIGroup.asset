@@ -18,21 +18,35 @@ MonoBehaviour:
   m_GUID: cb355e47623b733488eff9acc37767fb
   m_SerializeEntries:
   - m_GUID: 16c9172923f7b354caa847b3b4929518
-    m_Address: MainMenu
+    m_Address: MainMenuPanel
     m_ReadOnly: 0
     m_SerializedLabels:
     - DefaultPackage
     - PersistentUI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 578430800812ff04aac8630499d4c2ad
-    m_Address: TasksTracker
+    m_Address: TasksTrackerPanel
     m_ReadOnly: 0
     m_SerializedLabels:
     - DefaultPackage
     - 'OnDemandUILoading '
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c42c1c1431224940b75b5a8d5493b20
+    m_Address: LobbyPanel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DefaultPackage
+    - PersistentUI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9631644c6bd692a449e16dd2d0016c3f
+    m_Address: GameplayPanel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DefaultPackage
+    - PersistentUI
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f2111faa47037214e96acc697420118a
-    m_Address: Settings
+    m_Address: SettingsPanel
     m_ReadOnly: 0
     m_SerializedLabels:
     - DefaultPackage

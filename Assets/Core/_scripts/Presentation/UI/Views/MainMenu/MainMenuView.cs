@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using DenisKim.Core.Application;
+using R3;
 using UnityEngine;
 using UnityEngine.UI;
-using DenisKim.Core.Application;
 using VContainer;
 
 namespace DenisKim.Core.Presentation
@@ -25,12 +24,18 @@ namespace DenisKim.Core.Presentation
         readonly MainMenuViewModel _mainMenuViewModel;
         #endregion
 
+        private void OnEnable()
+        {
+            _lobbyButton.OnClickAsObservable().Subscribe(async _ => await _mainMenuViewModel.TransitionScene(2));
+        }
+
         private void Start()
         {
-            if (_mainMenuViewModel != null)
-                return;
-            else
-                Debug.Log("Main Menu View Model == null");
+
+        }
+
+        private void OnDisable()
+        {
         }
     }
 

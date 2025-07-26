@@ -1,22 +1,25 @@
+using Cysharp.Threading.Tasks;
 using DenisKim.Core.Domain;
-using DenisKim.Core.Infrastructure;
+using System.Threading;
 using VContainer;
 using VContainer.Unity;
 
-sealed public class MainMenuEntryPoint : IStartable
+namespace DenisKim.Core.Application
 {
-    #region Services
-    readonly IUIService _uiService;
-    #endregion
-
-    [Inject]
-    public MainMenuEntryPoint(DontDestroyAssetLoadingStrategy dontDestroyAssetLoadingStrategy, IUIService uiService)
+    public sealed class MainMenuEntryPoint : IAsyncStartable
     {
-        _uiService = uiService;
-    }
+        readonly IUIService _uiService;
 
-    public void Start()
-    {
+        [Inject]
+        public MainMenuEntryPoint(IUIService uiService)
+        {
+            _uiService = uiService;
+        }
 
+        public async UniTask StartAsync(CancellationToken cancellation)
+        {
+            await _uiService.ShowPersistentPanel(PanelsEnum.MainMenu, "MainMenuPanel", new MainMenuPanelLifetimeScope());
+        }
     }
 }
+

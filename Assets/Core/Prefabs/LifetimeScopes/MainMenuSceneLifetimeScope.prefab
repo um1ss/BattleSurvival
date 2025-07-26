@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5105484645379250576}
   - component: {fileID: 1184299563561360306}
   m_Layer: 0
-  m_Name: MainMenuLifetimeScope
+  m_Name: MainMenuSceneLifetimeScope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentReference:
-    TypeName: GameLifetimeScope
+    TypeName: DenisKim.Core.LifetimScope.RootLifetimeScope
   autoRun: 1
   autoInjectGameObjects: []

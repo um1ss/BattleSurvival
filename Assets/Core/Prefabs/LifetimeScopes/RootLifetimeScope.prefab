@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6574121357770483805}
-  - component: {fileID: -5561169160143678097}
+  - component: {fileID: 3595655614210033490}
   m_Layer: 0
-  m_Name: GameLifetimeScope
+  m_Name: RootLifetimeScope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-5561169160143678097
+--- !u!114 &3595655614210033490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3510776383243103270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c343e6637cbbba48890e406424e735b, type: 3}
+  m_Script: {fileID: 11500000, guid: 40280eca0f626624ebde848efa2f01dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   parentReference:
