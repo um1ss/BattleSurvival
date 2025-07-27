@@ -2,8 +2,9 @@ namespace DenisKim.Core.Domain
 {
     public enum SceneIndex
     {
-        MainMenu = 0,
-        Lobby = 1,
-        Gameplay = 2
+        None = 0,
+        MainMenu = 1,
+        Lobby = 2,
+        Gameplay = 3
     }
 }

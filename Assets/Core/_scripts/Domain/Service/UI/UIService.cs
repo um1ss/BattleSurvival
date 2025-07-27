@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using DenisKim.Core.Infrastructure;
 using DenisKim.Core.LifetimScope;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -42,32 +43,25 @@ namespace DenisKim.Core.Domain
                 (instance, handle, childLifetimeScope));
         }
 
-        public async UniTask ShowPersistentPanel(Panels panel,
+        public async UniTask ShowPanel(IShowPanelStrategy showPanelStrategy, Panels panel,
             string address,
             IInstaller installer)
         {
             if (!_loadedUIPanels.ContainsKey(panel))
                 await AddPanelDictionary(panel, address, installer);
-            if (_currentActivePersistentPanel != Panels.None)
-                _loadedUIPanels[_currentActivePersistentPanel].instance.SetActive(false);
-            _currentActivePersistentPanel = panel;
-            _loadedUIPanels[_currentActivePersistentPanel].instance.SetActive(true);
+            if (showPanelStrategy is ShowPersistentPanelStrategy)
+                showPanelStrategy.HidePanel(panel, _loadedUIPanels, ref _currentActivePersistentPanel);
+            else
+                showPanelStrategy.HidePanel(panel, _loadedUIPanels, ref _currentActiveOnDemandLoadingPanel);
         }
 
-        public async UniTask ShowOnDemandLoadingPanel(Panels panel,
-            string address,
-            IInstaller installer)
+        public void HidePanel()
         {
-            if (!_loadedUIPanels.ContainsKey(panel))
-                await AddPanelDictionary(panel, address, installer);
-            if (_currentActiveOnDemandLoadingPanel != Panels.None)
-            {
-                Addressables.Release(_loadedUIPanels[_currentActiveOnDemandLoadingPanel].handle);
-                _loadedUIPanels[_currentActiveOnDemandLoadingPanel].lifetimeScope.Dispose();
-                _loadedUIPanels[_currentActiveOnDemandLoadingPanel].instance.SetActive(false);
-            }
-            _currentActiveOnDemandLoadingPanel = panel;
-            _loadedUIPanels[_currentActiveOnDemandLoadingPanel].instance.SetActive(true);
+            Addressables.Release(_loadedUIPanels[_currentActiveOnDemandLoadingPanel].handle);
+            _loadedUIPanels[_currentActiveOnDemandLoadingPanel].lifetimeScope.Dispose();
+            Object.Destroy(_loadedUIPanels[_currentActiveOnDemandLoadingPanel].instance);
+            _loadedUIPanels.Remove(_currentActiveOnDemandLoadingPanel);
+            _currentActiveOnDemandLoadingPanel = Panels.None;
         }
     }
 }

@@ -1,21 +1,29 @@
-using System.Collections;
+using DenisKim.Core.Domain;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using VContainer.Unity;
 
-namespace DenisKim.Core
+namespace DenisKim.Core.Infrastructure
 {
-    public class ShowOnDemandLoadingPanelStrategy : MonoBehaviour
+    public sealed class ShowOnDemandLoadingPanelStrategy : IShowPanelStrategy
     {
-        // Start is called before the first frame update
-        void Start()
+        public void HidePanel(Panels panel,
+            Dictionary<Panels, (GameObject instance, AsyncOperationHandle<GameObject> handle,
+                LifetimeScope lifetimeScope)> loadedPanels,
+            ref Panels currentActivePanel)
         {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
+            if (currentActivePanel != Panels.None)
+            {
+                Addressables.Release(loadedPanels[currentActivePanel].handle);
+                loadedPanels[currentActivePanel].lifetimeScope.Dispose();
+                Object.Destroy(loadedPanels[currentActivePanel].instance);
+                loadedPanels.Remove(currentActivePanel);
+                currentActivePanel = Panels.None;
+            }
+            currentActivePanel = panel;
+            loadedPanels[currentActivePanel].instance.SetActive(true);
         }
     }
 }

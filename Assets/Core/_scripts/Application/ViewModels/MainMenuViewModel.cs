@@ -1,18 +1,18 @@
 using Cysharp.Threading.Tasks;
 using DenisKim.Core.Domain;
+using DenisKim.Core.Infrastructure;
 using R3;
 using System;
+using UnityEngine.Video;
 using VContainer;
+using VContainer.Unity;
 
 namespace DenisKim.Core.Application
 {
     public sealed class MainMenuViewModel : IDisposable
     {
-        public ReactiveCommand<int> TransitionToLobbyCommand { get; }
-        public ReactiveCommand ShowPanel { get; }
-
         readonly ISceneTransitionService _sceneTransitionService;
-        readonly IUIService _uIService;
+        readonly IUIService _iUIService;
 
         CompositeDisposable _disposables;
 
@@ -20,15 +20,18 @@ namespace DenisKim.Core.Application
         public MainMenuViewModel(ISceneTransitionService sceneTransitionService, IUIService uIService)
         {
             _sceneTransitionService = sceneTransitionService;
-            _uIService = uIService;
-            _disposables = new CompositeDisposable();
-            TransitionToLobbyCommand = new ReactiveCommand<int>().AddTo(_disposables);
+            _iUIService = uIService;
+        }
 
-            TransitionToLobbyCommand
-                .Subscribe(async sceneId =>
-                    await _sceneTransitionService.LoadSceneAsync((SceneIndex)sceneId))
-                .AddTo(_disposables);
-            ShowPanel.Subscribe(async _ => await _uIService.ShowOnDemandLoadingPanel)
+        public async UniTask ShowPanel(IShowPanelStrategy showPanelStrategy, Panels panel, string address,
+            IInstaller scope)
+        {
+            await _iUIService.ShowPanel(showPanelStrategy, panel, address, scope);
+        }
+
+        public void LoadSceneAsync()
+        {
+            _sceneTransitionService.LoadSceneAsync(SceneIndex.Lobby);
         }
 
         public void Dispose()

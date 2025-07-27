@@ -1,4 +1,3 @@
-using Cysharp.Threading.Tasks;
 using DenisKim.Core.Domain;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,14 +8,15 @@ namespace DenisKim.Core.Infrastructure
 {
     public sealed class ShowPersistentPanelStrategy : IShowPanelStrategy
     {
-        public UniTask ShowPanel(Panels panel, 
-            string address, 
-            IInstaller installer,
-            Dictionary<Panels, (GameObject instance, AsyncOperationHandle<GameObject> handle, 
+        public void HidePanel(Panels panel,
+            Dictionary<Panels, (GameObject instance, AsyncOperationHandle<GameObject> handle,
                 LifetimeScope lifetimeScope)> loadedPanels,
-            Panels currentActivePanel)
+            ref Panels currentActivePanel)
         {
-
+            if (currentActivePanel != Panels.None)
+                loadedPanels[currentActivePanel].instance.SetActive(false);
+            currentActivePanel = panel;
+            loadedPanels[currentActivePanel].instance.SetActive(true);
         }
     }
 }

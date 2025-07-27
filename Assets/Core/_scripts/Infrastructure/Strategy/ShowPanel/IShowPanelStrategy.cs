@@ -1,4 +1,3 @@
-using Cysharp.Threading.Tasks;
 using DenisKim.Core.Domain;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +8,9 @@ namespace DenisKim.Core.Infrastructure
 {
     public interface IShowPanelStrategy
     {
-        UniTask ShowPanel(Panels panel,
-            string address,
-            IInstaller installer,
+        void HidePanel(Panels panel,
             Dictionary<Panels, (GameObject instance,
             AsyncOperationHandle<GameObject> handle, LifetimeScope lifetimeScope)> loadedPanels,
-            Panels currentActivePanel);
+            ref Panels currentActivePanel);
     }
 }

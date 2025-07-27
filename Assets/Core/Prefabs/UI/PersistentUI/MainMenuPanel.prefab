@@ -172,14 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba457fd2e5263094496cacc3fcd10f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settingsButton: {fileID: 0}
-  _shopButton: {fileID: 0}
-  _tasksButton: {fileID: 0}
-  _collectionButton: {fileID: 0}
   _lobbyButton: {fileID: 4589545371065661650}
-  _tuningButton: {fileID: 0}
-  _temporaryOffersButton: {fileID: 0}
-  _machineImprovementButton: {fileID: 0}
+  _settingsButton: {fileID: 1991714925938200632}
 --- !u!1 &1519693800822720946
 GameObject:
   m_ObjectHideFlags: 0

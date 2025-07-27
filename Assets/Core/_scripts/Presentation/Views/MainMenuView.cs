@@ -1,5 +1,7 @@
+using Cysharp.Threading.Tasks;
 using DenisKim.Core.Application;
 using DenisKim.Core.Domain;
+using DenisKim.Core.Infrastructure;
 using R3;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,27 +12,37 @@ namespace DenisKim.Core.Presentation
     sealed public class MainMenuView : MonoBehaviour
     {
         [SerializeField] Button _lobbyButton;
+        [SerializeField] Button _settingsButton;
 
         [Inject]
         readonly MainMenuViewModel _mainMenuViewModel;
 
-        private CompositeDisposable _viewDisposables;
+        [Inject]
+        readonly ShowOnDemandLoadingPanelStrategy _showOnDemandLoadingPanelStrategy;
+
+        CompositeDisposable _disposables;
 
         void Awake()
         {
-            _viewDisposables = new CompositeDisposable();
+            _disposables = new CompositeDisposable();
         }
 
-        void OnEnable()
+        private void Start()
         {
-            _lobbyButton.OnClickAsObservable()
-                .Subscribe(_ => _mainMenuViewModel.TransitionToLobbyCommand.Execute((int)SceneIndex.Lobby))
-                .AddTo(_viewDisposables);
+            _lobbyButton.OnClickAsObservable().Subscribe(_ =>
+            {
+                _mainMenuViewModel.LoadSceneAsync();
+            }).AddTo(_disposables);
+            _settingsButton.OnClickAsObservable().Subscribe(async _=>
+            {
+                await _mainMenuViewModel.ShowPanel(_showOnDemandLoadingPanelStrategy, Panels.Settings,
+                    "SettingsPanel", new SettingsPanelLifetimeScope());
+            }).AddTo(_disposables);
         }
 
-        void OnDisable()
+        void OnDestroy()
         {
-            _viewDisposables?.Dispose();
+            _disposables?.Dispose();
         }
     }
 }

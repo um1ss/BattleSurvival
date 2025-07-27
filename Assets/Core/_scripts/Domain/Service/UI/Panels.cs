@@ -5,6 +5,8 @@ namespace DenisKim.Core.Domain
         None,
         MainMenu,
         Lobby,
-        Gameplay
+        Gameplay,
+        Settings,
+        TasksTrackerPanel,
     }
 }

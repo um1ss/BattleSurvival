@@ -1,11 +1,15 @@
 using Cysharp.Threading.Tasks;
+using DenisKim.Core.Infrastructure;
 using VContainer.Unity;
 
 namespace DenisKim.Core.Domain
 {
     public interface IUIService
     {
-        UniTask ShowOnDemandLoadingPanel(Panels panel, string address, IInstaller installer);
-        UniTask ShowPersistentPanel(Panels panel, string address, IInstaller installer);
+        UniTask ShowPanel(IShowPanelStrategy showPanelStrategy, Panels panel,
+            string address,
+            IInstaller installer);
+
+        void HidePanel();
     }
 }
