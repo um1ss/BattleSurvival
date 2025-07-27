@@ -31,7 +31,7 @@ namespace DenisKim.Core.Presentation
         {
             _lobbyButton.OnClickAsObservable().Subscribe(_ =>
             {
-                _mainMenuViewModel.LoadSceneAsync();
+                _mainMenuViewModel.LoadSceneAsync(SceneIndex.Lobby);
             }).AddTo(_disposables);
             _settingsButton.OnClickAsObservable().Subscribe(async _=>
             {

@@ -8,7 +8,7 @@ namespace DenisKim.Core.Infrastructure
 {
     public interface IShowPanelStrategy
     {
-        void HidePanel(Panels panel,
+        void UnloadPanel(Panels panel,
             Dictionary<Panels, (GameObject instance,
             AsyncOperationHandle<GameObject> handle, LifetimeScope lifetimeScope)> loadedPanels,
             ref Panels currentActivePanel);

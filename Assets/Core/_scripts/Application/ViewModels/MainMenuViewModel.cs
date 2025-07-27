@@ -29,9 +29,9 @@ namespace DenisKim.Core.Application
             await _iUIService.ShowPanel(showPanelStrategy, panel, address, scope);
         }
 
-        public void LoadSceneAsync()
+        public void LoadSceneAsync(SceneIndex sceneIndex)
         {
-            _sceneTransitionService.LoadSceneAsync(SceneIndex.Lobby);
+            _sceneTransitionService.LoadSceneAsync(sceneIndex);
         }
 
         public void Dispose()

@@ -50,9 +50,9 @@ namespace DenisKim.Core.Domain
             if (!_loadedUIPanels.ContainsKey(panel))
                 await AddPanelDictionary(panel, address, installer);
             if (showPanelStrategy is ShowPersistentPanelStrategy)
-                showPanelStrategy.HidePanel(panel, _loadedUIPanels, ref _currentActivePersistentPanel);
+                showPanelStrategy.UnloadPanel(panel, _loadedUIPanels, ref _currentActivePersistentPanel);
             else
-                showPanelStrategy.HidePanel(panel, _loadedUIPanels, ref _currentActiveOnDemandLoadingPanel);
+                showPanelStrategy.UnloadPanel(panel, _loadedUIPanels, ref _currentActiveOnDemandLoadingPanel);
         }
 
         public void HidePanel()

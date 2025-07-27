@@ -8,7 +8,7 @@ namespace DenisKim.Core.Infrastructure
 {
     public sealed class ShowPersistentPanelStrategy : IShowPanelStrategy
     {
-        public void HidePanel(Panels panel,
+        public void UnloadPanel(Panels panel,
             Dictionary<Panels, (GameObject instance, AsyncOperationHandle<GameObject> handle,
                 LifetimeScope lifetimeScope)> loadedPanels,
             ref Panels currentActivePanel)

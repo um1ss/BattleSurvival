@@ -9,7 +9,7 @@ namespace DenisKim.Core.Infrastructure
 {
     public sealed class ShowOnDemandLoadingPanelStrategy : IShowPanelStrategy
     {
-        public void HidePanel(Panels panel,
+        public void UnloadPanel(Panels panel,
             Dictionary<Panels, (GameObject instance, AsyncOperationHandle<GameObject> handle,
                 LifetimeScope lifetimeScope)> loadedPanels,
             ref Panels currentActivePanel)
@@ -20,7 +20,6 @@ namespace DenisKim.Core.Infrastructure
                 loadedPanels[currentActivePanel].lifetimeScope.Dispose();
                 Object.Destroy(loadedPanels[currentActivePanel].instance);
                 loadedPanels.Remove(currentActivePanel);
-                currentActivePanel = Panels.None;
             }
             currentActivePanel = panel;
             loadedPanels[currentActivePanel].instance.SetActive(true);
