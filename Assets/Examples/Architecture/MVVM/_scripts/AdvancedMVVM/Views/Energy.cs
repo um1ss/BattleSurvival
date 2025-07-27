@@ -17,7 +17,7 @@ namespace DenisKim.MVVM.Education // Пространство имен для в
         [SerializeField] // Атрибут Unity для сериализации приватного поля
         TextMeshProUGUI _textEnergy; // Ссылка на компонент TextMeshPro, который будет отображать текущее значение энергии
 
-        private CompositeDisposable _viewDisposables; // Приватный контейнер для всех подписок R3, связанных с этим View, для корректной очистки
+        private CompositeDisposable _viewDisposables;
 
         void Awake() // Метод Unity, вызывается при загрузке скрипта, до Start()
         {
@@ -37,7 +37,7 @@ namespace DenisKim.MVVM.Education // Пространство имен для в
         {
             // Отлично! Вы убрали вызов _characterHUDViewModel?.Dispose();.
             // ViewModel является синглтоном VContainer и управляется своим LifetimeScope.
-            _viewDisposables.Dispose(); // Отписка всех подписок, добавленных в _viewDisposables, освобождая ресурсы и предотвращая утечки памяти
+                 // Отписка всех подписок, добавленных в _viewDisposables, освобождая ресурсы и предотвращая утечки памяти
         }
     }
 }

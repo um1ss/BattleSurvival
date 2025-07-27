@@ -5,7 +5,7 @@ namespace DenisKim.Core.Domain
 {
     public interface IUIService
     {
-        UniTask ShowOnDemandLoadingPanel(PanelsEnum panel, string address, IInstaller installer);
-        UniTask ShowPersistentPanel(PanelsEnum panel, string address, IInstaller installer);
+        UniTask ShowOnDemandLoadingPanel(Panels panel, string address, IInstaller installer);
+        UniTask ShowPersistentPanel(Panels panel, string address, IInstaller installer);
     }
 }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5866592232601573650}
   - component: {fileID: 8724718221533354820}
   - component: {fileID: 3591620941974482492}
-  - component: {fileID: 8209364684404769926}
   m_Layer: 5
   m_Name: LobbyPanel
   m_TagString: Untagged
@@ -76,23 +75,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8209364684404769926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 341533246079655319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba457fd2e5263094496cacc3fcd10f46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _settingsButton: {fileID: 0}
-  _shopButton: {fileID: 0}
-  _tasksButton: {fileID: 0}
-  _collectionButton: {fileID: 0}
-  _lobbyButton: {fileID: 0}
-  _tuningButton: {fileID: 0}
-  _temporaryOffersButton: {fileID: 0}
-  _machineImprovementButton: {fileID: 0}

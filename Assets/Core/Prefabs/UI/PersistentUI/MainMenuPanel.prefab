@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 5866592232601573650}
   - component: {fileID: 8724718221533354820}
   - component: {fileID: 3591620941974482492}
-  - component: {fileID: 8209364684404769926}
+  - component: {fileID: 1137056666257436389}
   m_Layer: 5
   m_Name: MainMenuPanel
   m_TagString: Untagged
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8209364684404769926
+--- !u!114 &1137056666257436389
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,14 +172,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba457fd2e5263094496cacc3fcd10f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settingsButton: {fileID: 1991714925938200632}
-  _shopButton: {fileID: 4382045628560030350}
-  _tasksButton: {fileID: 2094678215663726714}
-  _collectionButton: {fileID: 1403340513652314811}
+  _settingsButton: {fileID: 0}
+  _shopButton: {fileID: 0}
+  _tasksButton: {fileID: 0}
+  _collectionButton: {fileID: 0}
   _lobbyButton: {fileID: 4589545371065661650}
-  _tuningButton: {fileID: 58223467228520831}
-  _temporaryOffersButton: {fileID: 675743676873002074}
-  _machineImprovementButton: {fileID: 7465536582602157768}
+  _tuningButton: {fileID: 0}
+  _temporaryOffersButton: {fileID: 0}
+  _machineImprovementButton: {fileID: 0}
 --- !u!1 &1519693800822720946
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19
+  m_fontSize: 18
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -648,7 +648,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 39.35
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -903,7 +903,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 39.35
+  m_fontSize: 18
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1037,7 +1037,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.8
+  m_fontSize: 18
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1292,7 +1292,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55.1
+  m_fontSize: 23.35
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1789,7 +1789,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.85
+  m_fontSize: 18
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1923,7 +1923,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 34
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2178,7 +2178,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 61.2
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -16,9 +16,9 @@ namespace DenisKim.Core.Application
             _uIService = uIService;
         }
 
-        public async UniTask StartAsync(CancellationToken cancellation = default)
+        public async UniTask StartAsync(CancellationToken cancellation)
         {
-            await _uIService.ShowPersistentPanel(PanelsEnum.Lobby, "LobbyPanel", new LobbyPanelLifetimeScope());
+            await _uIService.ShowPersistentPanel(Panels.Lobby, "LobbyPanel", new LobbyPanelLifetimeScope());
         }
     }
 }

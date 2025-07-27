@@ -1,6 +1,5 @@
 using Cysharp.Threading.Tasks;
 using DenisKim.Core.Domain;
-using DenisKim.Core.Infrastructure;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -22,6 +21,6 @@ public class BootstrapEntryPoint : IAsyncStartable
 
     public async UniTask StartAsync(CancellationToken cancellationToken)
     {
-        await _sceneTransitionService.Load(1);
+        await _sceneTransitionService.LoadSceneAsync(SceneIndex.MainMenu);
     }
 }

@@ -1,7 +1,6 @@
+using DenisKim.Core.Application;
 using VContainer;
 using VContainer.Unity;
-using DenisKim.Core.Application;
-using DenisKim.Core.Domain;
 
 namespace DenisKim.Core
 {
@@ -9,7 +8,6 @@ namespace DenisKim.Core
     {
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.Register<IUIService, UIService>(Lifetime.Singleton);
             builder.RegisterEntryPoint<MainMenuEntryPoint>();
         }
     }

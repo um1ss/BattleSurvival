@@ -1,21 +1,21 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace DenisKim.Core.Infrastructure
+namespace DenisKim.Core
 {
-    public sealed class ShowOnDemandLoadingPanelStrategy : IShowPanelStrategy
+    public class ShowOnDemandLoadingPanelStrategy : MonoBehaviour
     {
-        public void ShowPanel(ref PanelsEnum currentActivePanel,
-            Dictionary<PanelsEnum, (GameObject instance, AsyncOperationHandle<GameObject> handle)> loadedUIPanels,
-            PanelsEnum panel)
+        // Start is called before the first frame update
+        void Start()
         {
-            if (currentActivePanel != PanelsEnum.None)
-            {
-                loadedUIPanels[currentActivePanel].instance.SetActive(false);
-            }
-            currentActivePanel = panel;
-            loadedUIPanels[currentActivePanel].instance.SetActive(true);
+        
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+        
         }
     }
 }

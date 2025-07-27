@@ -18,7 +18,7 @@ namespace DenisKim.Core.Application
 
         public async UniTask StartAsync(CancellationToken cancellation)
         {
-            await _uiService.ShowPersistentPanel(PanelsEnum.MainMenu, "MainMenuPanel", new MainMenuPanelLifetimeScope());
+            await _uiService.ShowPersistentPanel(Panels.MainMenu, "MainMenuPanel", new MainMenuPanelLifetimeScope());
         }
     }
 }
