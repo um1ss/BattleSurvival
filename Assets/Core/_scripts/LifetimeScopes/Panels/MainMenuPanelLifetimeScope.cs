@@ -1,6 +1,7 @@
+using DenisKim.Core.Application;
+using DenisKim.Core.Domain;
 using VContainer;
 using VContainer.Unity;
-using DenisKim.Core.Application;
 
 namespace DenisKim.Core
 {

@@ -1,28 +1,23 @@
-using Cysharp.Threading.Tasks;
 using DenisKim.Core.Domain;
-using DenisKim.Core.Infrastructure;
-using System;
+using R3;
 using VContainer;
-using VContainer.Unity;
 
 namespace DenisKim.Core.Application
 {
-    public sealed class SettingsViewModel : IDisposable
+    public sealed class SettingsViewModel : BaseViewModel
     {
         readonly IUIService _iUIService;
+
+        public ReactiveCommand<Unit> OnClosePanel { get; }
 
         [Inject]
         public SettingsViewModel(IUIService uIService)
         {
             _iUIService = uIService;
-        }
-        public async UniTask ShowPanel(IShowPanelStrategy showPanelStrategy, Panels panel, string address,
-            IInstaller scope) => await _iUIService.ShowPanel(showPanelStrategy, panel, address, scope);
 
-        public void HidePanel() => _iUIService.HidePanel();
-        public void Dispose()
-        {
+            OnClosePanel = new();
 
+            OnClosePanel.Subscribe(_ => _iUIService.HidePanel()).AddTo(_compositeDisposable);
         }
     }
 }

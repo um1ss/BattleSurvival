@@ -15,7 +15,8 @@ namespace DenisKim.Core.Domain
     {
         readonly RootLifetimeScope _rootLifetimeScope;
 
-        readonly Canvas _canvas;
+        readonly ICanvasService _canvasService;
+
         readonly Dictionary<Panels, (GameObject instance,
             AsyncOperationHandle<GameObject> handle, LifetimeScope lifetimeScope)> _loadedUIPanels;
 
@@ -24,10 +25,10 @@ namespace DenisKim.Core.Domain
 
         [Inject]
         public UIService(RootLifetimeScope rootLifetimeScope,
-            Canvas canvas)
+            ICanvasService canvasService)
         {
             _rootLifetimeScope = rootLifetimeScope;
-            _canvas = canvas;
+            _canvasService = canvasService;
             _loadedUIPanels = new Dictionary<Panels,
                 (GameObject, AsyncOperationHandle<GameObject>, LifetimeScope lifetimeScope)>();
         }
@@ -37,7 +38,7 @@ namespace DenisKim.Core.Domain
             var childLifetimeScope = _rootLifetimeScope.CreateChild(installer);
             var handle = Addressables.LoadAssetAsync<GameObject>(address);
             var instance = childLifetimeScope.Container.Instantiate(await handle.ToUniTask(),
-                _canvas.transform, false);
+                _canvasService.GetTransform, false);
             instance.SetActive(false);
             _loadedUIPanels.Add(panel,
                 (instance, handle, childLifetimeScope));
