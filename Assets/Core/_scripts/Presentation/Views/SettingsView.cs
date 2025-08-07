@@ -9,6 +9,7 @@ namespace DenisKim.Core.Presentation
     public sealed class SettingsView : BaseView
     {
         [SerializeField] Button _closeButton;
+        //[SerializeField] Slider _sliderVolume;
 
         [Inject]
         readonly SettingsViewModel _settingsViewModel;
@@ -19,6 +20,13 @@ namespace DenisKim.Core.Presentation
             {
                 _settingsViewModel.OnClosePanel.Execute(_);
             }).AddTo(_compositeDisposable);
+
+            //_sliderVolume.onValueChanged.AsObservable()
+            //.Subscribe(value =>
+            //{
+            //    _settingsViewModel.SetVolume(value);
+            //})
+            //.AddTo(_disposables);
         }
     }
 }

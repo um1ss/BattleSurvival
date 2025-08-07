@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: UIGroup
+  m_Name: UIPanels
   m_EditorClassIdentifier: 
-  m_GroupName: UIGroup
+  m_GroupName: UIPanels
   m_Data:
     m_SerializedData: []
-  m_GUID: cb355e47623b733488eff9acc37767fb
+  m_GUID: 35b7bf1c9cdcf2b478d9cb08bfcf1096
   m_SerializeEntries:
   - m_GUID: 16c9172923f7b354caa847b3b4929518
     m_Address: MainMenuPanel
@@ -56,5 +56,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 71b172456f424da46b672e36e3681243, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: d3f83a53890a48c4bba08ca067f00a10, type: 2}
-    - {fileID: 11400000, guid: be31886729501154194301ae53062422, type: 2}
+    - {fileID: 11400000, guid: baefe95875377c544be0206a17eae038, type: 2}
+    - {fileID: 11400000, guid: d8ebe4281abee694c8ada66a8cb6ab41, type: 2}

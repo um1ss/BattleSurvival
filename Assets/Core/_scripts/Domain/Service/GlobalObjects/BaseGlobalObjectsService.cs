@@ -10,8 +10,7 @@ namespace DenisKim.Core.Domain
         public virtual async UniTask CreateInstance(string address)
         {
             var handle = Addressables.InstantiateAsync(address);
-            await handle.ToUniTask();
-            _instance = handle.Result;
+            _instance = await handle.ToUniTask();
             GameObject.DontDestroyOnLoad(_instance);
         }
     }
